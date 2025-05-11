@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserStatus extends Model
+class Venue extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'name',
+        'address',
+        'city',
+        'state',
+        'zip_code',
+        'phone',
+        'email',
+        'capacity',
+        'description',
         'status',
-        'last_active',
-        'is_online',
-        'status_message',
-        'profile_visibility'
-    ];
-
-    protected $casts = [
-        'last_active' => 'datetime',
-        'is_online' => 'boolean'
+        'user_id' // to track who created the venue
     ];
 
     // Relationship with User
@@ -28,4 +28,4 @@ class UserStatus extends Model
     {
         return $this->belongsTo(User::class);
     }
-}
+} 
